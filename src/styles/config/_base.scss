@@ -1,0 +1,19 @@
+body {
+  background-color: $white;
+  margin: 0;
+  font-family: $body-font;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $h-font;
+}
+
+li {
+  list-style: none;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 50px;
+}
