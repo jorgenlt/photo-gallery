@@ -4,56 +4,102 @@
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
-
+  
+  overflow: hidden;
+  
   li {
     height: 25vh;
     flex-grow: 1;
   }
-
+  
   li:last-child {
     // There's no science in using "10" here. In all my testing, this delivered the best results.
     flex-grow: 10;
   }
-
-  img {
+  
+  .img-small {
     max-height: 100%;
     min-width: 100%;
     object-fit: cover;
     vertical-align: bottom;
     cursor: pointer;
     transition: 600ms;
-
+    
     &:hover {
-      // opacity: 0.8;
       filter: saturate(130%) contrast(130%) opacity(80%);
     }
   }
-
+  
+  .img-large {
+    height: 80vh;
+  }
+  
+  .img-modal {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    overflow: hidden;
+    -webkit-animation: fade-in 400ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 400ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
+  
+  // animation
+  
+  
+  @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  
+  
+  
   // Responsiveness
-
+  
   // Portrait
-
+  
   @media (max-aspect-ratio: 1/1) {
     li {
       height: 30vh;
     }
   }
-
+  
   // Short screens
-
+  
   @media (max-height: 480px) {
     li {
       height: 80vh;
     }
   }
-
+  
   // Smaller screens in portrait
-
+  
   @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
     ul {
       flex-direction: row;
     }
-
+    
     li {
       height: auto;
       width: 100%;

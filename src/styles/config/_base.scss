@@ -2,6 +2,7 @@ body {
   background-color: $white;
   margin: 0;
   font-family: $body-font;
+  transition: 1000ms;
 }
 
 h1, h2, h3, h4, h5 {
@@ -16,4 +17,19 @@ li {
   max-width: 1280px;
   margin: 0 auto;
   padding: 50px;
+}
+
+// body > :not(.imgx){
+//   filter: blur(5px) brightness(50%);
+//   overflow: hidden;
+//   position: absolute;
+//   // z-index: 99;
+//   height: 100%;
+//   width: 100%;
+
+  
+// }
+
+.overflow-hidden {
+  overflow: hidden;
 }

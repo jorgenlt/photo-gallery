@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { getRandomElement } from '../common/utils/helperFunctions'
+import Photo from './Photo'
 
 const Photos = () => {
   const photos = [
@@ -248,7 +249,7 @@ const Photos = () => {
     'sample2.jpg'
   ]
 
-  const photoElements = photos => {
+  const photoElemesnts = photos => {
     return (
       photos.map((photo, i) => {
       return (
@@ -266,10 +267,12 @@ const Photos = () => {
     )
   }
 
+  const photoElements = photos.map((photo, i) => <Photo key={uuidv4()} img={photo} id={`img-${i}`} />)
+
   return(
     <>
       <ul className="photos">
-        {photoElements(photos)}
+        {photoElements}
         <li></li>
       </ul>
     </>
