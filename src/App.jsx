@@ -16,10 +16,12 @@ const App = () => {
   [])
 
   return (
-    <div className={`app ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-      <Nav />
-      <Photos />
-      <Footer />
+    <div className={darkMode ? 'dark-mode' : 'light-mode'}>
+      <div className="app">
+        <Nav />
+        <Photos />
+        <Footer />
+      </div>
     </div>
   )
 }

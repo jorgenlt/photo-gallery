@@ -1,13 +1,17 @@
-import { v4 as uuidv4 } from 'uuid';
 import Photo from './Photo'
-import { photos } from './photosList'
+import { useSelector } from 'react-redux'
+import { selectAllPhotos } from './photosSlice';
 
 const Photos = () => {
+  const photos = useSelector(selectAllPhotos)
+
   const photoElements = photos.map((photo, i) => {
     return (
       <Photo 
-        key={uuidv4()} 
-        img={photo} 
+        key={photo.id} 
+        img={photo.src}
+        category={photo.category}
+        year={photo.year}
         i={i}
       />
     )

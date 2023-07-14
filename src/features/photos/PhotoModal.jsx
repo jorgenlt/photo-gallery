@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
-import { photos } from './photosList'
 import { useSelector } from 'react-redux'
+import { selectAllPhotos } from './photosSlice';
 
 const PhotoModal = props => {
   const darkMode = useSelector(state => state.photos.darkMode)
+  const photos = useSelector(selectAllPhotos)
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(props.i)
+
+  const currentPhoto = photos[currentPhotoIndex]
 
   const prevImage = () => {
     if (currentPhotoIndex > 0) {
@@ -44,12 +47,12 @@ const PhotoModal = props => {
     >
       <img 
         className='img-large' 
-        src={`/${photos[currentPhotoIndex]}`} 
+        src={`/${currentPhoto.src}`}
         alt={props.img}
         onClick={() => props.toggleModal()}
       />
       <div>
-        <p>{currentPhotoIndex}</p>
+        <p>{currentPhotoIndex} / {currentPhoto.category} / {currentPhoto.year}</p>
         <span
           className='img-nav'
           onClick={() => prevImage()}

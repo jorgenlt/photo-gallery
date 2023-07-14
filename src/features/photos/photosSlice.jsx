@@ -1,7 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createSelector } from '@reduxjs/toolkit'
+import { photos } from './photosList'
 
 const initialState = {
   darkMode: false,
+  photos: photos,
+  filterQuery: '',
+  filteredPhotos: []
 }
 
 export const photosSlice = createSlice({
@@ -10,12 +14,20 @@ export const photosSlice = createSlice({
   reducers: {
     toggleDarkMode: state => {
       state.darkMode = !state.darkMode
-      console.log(!state.darkMode);
     },
+    updateFilterQuery: (state, action) => {
+      state.filterQuery = action.payload;
+    }
   },
 })
 
+// Selector for all photos
+export const selectAllPhotos = createSelector(
+  state => state.photos.photos,
+  photos => photos
+)
+
 // Action creators are generated for each case reducer function
-export const { toggleDarkMode } = photosSlice.actions
+export const { toggleDarkMode, updateFilterQuery } = photosSlice.actions
 
 export default photosSlice.reducer

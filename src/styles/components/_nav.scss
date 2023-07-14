@@ -16,5 +16,11 @@ nav {
 
   li {
     text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }

@@ -1,8 +1,9 @@
-import { useDispatch } from 'react-redux'
-import { toggleDarkMode } from '../features/photos/photosSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleDarkMode, updateFilterQuery } from '../features/photos/photosSlice'
 
 const Nav = () => {
   const dispatch = useDispatch()
+  const darkMode = useSelector(state => state.photos.darkMode)
 
   return (
     <>
@@ -12,12 +13,21 @@ const Nav = () => {
         </header>
         <div>
           <ul>
-            <li>Category 1</li>
-            <li>Category 2</li>
-            <li>Category 3</li>
+            <li>all</li>
+            <li
+              onClick={() => dispatch(updateFilterQuery('landscape'))}
+            >
+              landscape
+            </li>
+            <li>portrait</li>
+            <li>norway</li>
+            <li>asia</li>
+            <li>|</li>
             <li
               onClick={() => dispatch(toggleDarkMode())}
-            >Dark Mode</li>
+            >
+              {darkMode ? 'Light Mode' : 'Dark Mode'}
+            </li>
           </ul>
         </div>
       </nav>

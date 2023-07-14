@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
 import { getRandomElement } from '../../common/utils/helperFunctions'
+import { useSelector } from 'react-redux'
+import { selectAllPhotos } from './photosSlice';
 import PhotoModal from './PhotoModal'
-import { photos } from './photosList'
+
 
 const Photo = props => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const photos = useSelector(selectAllPhotos)
 
   const toggleModal = () => {
     setIsOpen(prev => !prev)
@@ -31,7 +35,7 @@ const Photo = props => {
       >
         <img 
           className='img-small' 
-          src={`/${photos[props.i]}`} 
+          src={`/${photos[props.i].src}`} 
           alt={props.img} 
           onClick={() => toggleModal()}
         />
@@ -41,6 +45,8 @@ const Photo = props => {
         <PhotoModal 
           toggleModal={toggleModal}
           i={props.i}
+          category={props.category}
+          year={props.year}
         />
       }
     </>
