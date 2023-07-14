@@ -10,6 +10,7 @@ const Nav = () => {
       <nav>
         <header>
           <h1>Photo Gallery</h1>
+          <h2>by jørgen larsen tjønnteig</h2>
         </header>
         <div>
           <ul>

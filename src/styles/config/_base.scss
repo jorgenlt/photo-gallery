@@ -2,10 +2,16 @@ body {
   margin: 0;
   font-family: $body-font;
   transition: 1000ms;
+  font-weight: 200;
 }
 
 h1, h2, h3, h4, h5 {
   font-family: $h-font;
+  font-weight: 200;
+}
+
+p, span {
+  font-weight: 200;
 }
 
 li {

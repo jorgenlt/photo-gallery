@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { selectAllPhotos } from './photosSlice';
+import { selectAllPhotos } from './photosSlice'
+import { HiXMark } from "react-icons/hi2";
 
 const PhotoModal = props => {
   const darkMode = useSelector(state => state.photos.darkMode)
@@ -8,9 +9,9 @@ const PhotoModal = props => {
   const filterQuery = useSelector(state => state.photos.filterQuery)
   const filteredPhotos = useSelector(state => state.photos.filteredPhotos)
 
-  const [currentPhotos, setCurrentPhotos] = useState(filterQuery ? filteredPhotos : photos) 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(props.i)
-
+  
+  const currentPhotos = filterQuery ? filteredPhotos : photos
   const currentPhoto = currentPhotos[currentPhotoIndex]
 
   const prevImage = () => {
@@ -54,21 +55,24 @@ const PhotoModal = props => {
         alt={props.img}
         onClick={() => props.toggleModal()}
       />
-      <div>
-        <p>{currentPhotoIndex} / {currentPhoto.category} / {currentPhoto.year}</p>
+      <div className='img-nav'>
+        {/* <p>{currentPhotoIndex} / {currentPhoto.category} / {currentPhoto.year}</p> */}
         <span
-          className='img-nav'
           onClick={() => prevImage()}
         >
-          ←
+          prev
         </span>
+        &nbsp;/&nbsp;
         <span 
-          className='img-nav'
           onClick={() => nextImage()}
         >
-          →
+          next
         </span>
       </div>
+      <HiXMark 
+        className='img-modal--close'
+        onClick={() => props.toggleModal()} 
+      />
     </div>
   )
 }

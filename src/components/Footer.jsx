@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <h1>Footer.jsx</h1>
+        <p>© 2023 Jørgen Larsen Tjønnteig</p>
       </footer>
     </>
   )
