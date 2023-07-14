@@ -13,13 +13,18 @@ const Nav = () => {
         </header>
         <div>
           <ul>
-            <li>all</li>
             <li
-              onClick={() => dispatch(updateFilterQuery('landscape'))}
+              onClick={() => dispatch(updateFilterQuery(''))}
             >
-              landscape
+              all</li>
+            <li
+              onClick={() => dispatch(updateFilterQuery('nature'))}
+            >
+              nature
             </li>
-            <li>portrait</li>
+            <li
+              onClick={() => dispatch(updateFilterQuery('animals'))}
+            >animals</li>
             <li>norway</li>
             <li>asia</li>
             <li>|</li>

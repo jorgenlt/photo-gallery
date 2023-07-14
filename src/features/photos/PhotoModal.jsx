@@ -5,10 +5,13 @@ import { selectAllPhotos } from './photosSlice';
 const PhotoModal = props => {
   const darkMode = useSelector(state => state.photos.darkMode)
   const photos = useSelector(selectAllPhotos)
+  const filterQuery = useSelector(state => state.photos.filterQuery)
+  const filteredPhotos = useSelector(state => state.photos.filteredPhotos)
 
+  const [currentPhotos, setCurrentPhotos] = useState(filterQuery ? filteredPhotos : photos) 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(props.i)
 
-  const currentPhoto = photos[currentPhotoIndex]
+  const currentPhoto = currentPhotos[currentPhotoIndex]
 
   const prevImage = () => {
     if (currentPhotoIndex > 0) {
@@ -17,7 +20,7 @@ const PhotoModal = props => {
   }
 
   const nextImage = () => {
-    if (currentPhotoIndex < photos.length - 1) {
+    if (currentPhotoIndex < currentPhotos.length - 1) {
       setCurrentPhotoIndex(prev => prev + 1)
     }
   }
