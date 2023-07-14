@@ -1,5 +1,4 @@
 body {
-  background-color: $white;
   margin: 0;
   font-family: $body-font;
   transition: 1000ms;
@@ -13,22 +12,21 @@ li {
   list-style: none;
 }
 
-#root {
+.app{
   max-width: 1280px;
   margin: 0 auto;
   padding: 50px;
 }
 
-// body > :not(.imgx){
-//   filter: blur(5px) brightness(50%);
-//   overflow: hidden;
-//   position: absolute;
-//   // z-index: 99;
-//   height: 100%;
-//   width: 100%;
+.dark-mode {
+  background-color: $black;
+  color: $white;
+}
 
-  
-// }
+.light-mode {
+  background-color: $white;
+  color: $black;
+}
 
 .overflow-hidden {
   overflow: hidden;

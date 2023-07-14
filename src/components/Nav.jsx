@@ -1,4 +1,9 @@
+import { useDispatch } from 'react-redux'
+import { toggleDarkMode } from '../features/photos/photosSlice'
+
 const Nav = () => {
+  const dispatch = useDispatch()
+
   return (
     <>
       <nav>
@@ -10,6 +15,9 @@ const Nav = () => {
             <li>Category 1</li>
             <li>Category 2</li>
             <li>Category 3</li>
+            <li
+              onClick={() => dispatch(toggleDarkMode())}
+            >Dark Mode</li>
           </ul>
         </div>
       </nav>

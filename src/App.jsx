@@ -3,22 +3,24 @@ import './styles/app.scss'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Nav from './components/Nav'
-import Photos from './components/Photos'
+import Photos from './features/photos/Photos'
 import Footer from './components/Footer'
+import { useSelector } from 'react-redux'
 
 const App = () => {
+  const darkMode = useSelector(state => state.photos.darkMode)
+
   useEffect(() => {
     AOS.init({ startEvent: 'load' });
-    // window.addEventListener('load', AOS.refresh);
   }, 
   [])
 
   return (
-    <>
+    <div className={`app ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <Nav />
       <Photos />
       <Footer />
-    </>
+    </div>
   )
 }
 

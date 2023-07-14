@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react'
-import { getRandomElement } from '../common/utils/helperFunctions'
+import { getRandomElement } from '../../common/utils/helperFunctions'
+import PhotoModal from './PhotoModal'
+import { photos } from './photosList'
 
-const Photos = props => {
+const Photo = props => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const toggleModal = () => {
+    setIsOpen(prev => !prev)
+  }
 
   useEffect(() => {
     const body = document.body;
@@ -25,27 +31,20 @@ const Photos = props => {
       >
         <img 
           className='img-small' 
-          src={`/${props.img}`} 
+          src={`/${photos[props.i]}`} 
           alt={props.img} 
-          id={props.id} 
-          onClick={() => setIsOpen(prev => !prev)}
+          onClick={() => toggleModal()}
         />
       </li>
       {
         isOpen && 
-        <div 
-          className='img-modal' 
-          onClick={() => setIsOpen(prev => !prev)} 
-        >
-            <img 
-              className='img-large' 
-              src={`/${props.img}`} 
-              alt={props.img} 
-            />
-        </div>
+        <PhotoModal 
+          toggleModal={toggleModal}
+          i={props.i}
+        />
       }
     </>
   )
 }
 
-export default Photos
+export default Photo
