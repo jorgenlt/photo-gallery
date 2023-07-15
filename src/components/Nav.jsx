@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleDarkMode, updateFilterQuery } from '../features/photos/photosSlice'
+import Dropdown from './Dropdown'
 
 const Nav = () => {
   const dispatch = useDispatch()
@@ -26,8 +27,62 @@ const Nav = () => {
             <li
               onClick={() => dispatch(updateFilterQuery('animals'))}
             >animals</li>
-            <li>norway</li>
-            <li>asia</li>
+            <Dropdown 
+              title='norway'
+              darkMode={darkMode}
+              links={[
+                {
+                  name: 'all',
+                  onClick: () => dispatch(updateFilterQuery(''))
+
+                },
+                {
+                  name: 'oslo',
+                  onClick: () => dispatch(updateFilterQuery(''))
+
+                },
+                {
+                  name: 'lofoten',
+                  onClick: () => dispatch(updateFilterQuery(''))
+
+                },
+                {
+                  name: 'vesterålen',
+                  onClick: () => dispatch(updateFilterQuery(''))
+
+                }
+              ]}
+            />
+            <Dropdown 
+              title='south east asia'
+              darkMode={darkMode}
+              links={[
+                {
+                  name: 'all',
+                  onClick: () => dispatch(updateFilterQuery(''))
+                },
+                {
+                  name: 'thailand',
+                  onClick: () => dispatch(updateFilterQuery(''))
+
+                },
+                {
+                  name: 'indonesia',
+                  onClick: () => dispatch(updateFilterQuery(''))
+
+                },
+                {
+                  name: 'vietnam',
+                  onClick: () => dispatch(updateFilterQuery(''))
+
+                },
+                {
+                  name: 'philipphines',
+                  onClick: () => dispatch(updateFilterQuery(''))
+
+                }
+              ]}
+            />
             <li>|</li>
             <li
               onClick={() => dispatch(toggleDarkMode())}
