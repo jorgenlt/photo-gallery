@@ -39,3 +39,13 @@ nav {
     }
   }
 }
+@media screen and (max-width: 600px) {
+  nav {
+    flex-wrap: wrap;
+
+    ul {
+      flex-wrap: wrap;
+    }
+  }
+}
+

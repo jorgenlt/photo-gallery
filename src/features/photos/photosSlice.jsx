@@ -18,7 +18,7 @@ export const photosSlice = createSlice({
     updateFilterQuery: (state, action) => {
       state.filterQuery = action.payload;
       console.log(`filterQuery updated with: ${action.payload}`);
-      state.filteredPhotos = state.photos.filter(photo => photo.category === state.filterQuery)
+      state.filteredPhotos = state.photos.filter(photo => photo.category.includes(state.filterQuery));
     }
   },
 })

@@ -19,36 +19,88 @@ const Nav = () => {
               onClick={() => dispatch(updateFilterQuery(''))}
             >
               all</li>
-            <li
-              onClick={() => dispatch(updateFilterQuery('nature'))}
-            >
-              nature
-            </li>
-            <li
-              onClick={() => dispatch(updateFilterQuery('animals'))}
-            >animals</li>
             <Dropdown 
               title='norway'
               darkMode={darkMode}
               links={[
                 {
                   name: 'all',
-                  onClick: () => dispatch(updateFilterQuery(''))
+                  onClick: () => dispatch(updateFilterQuery('norway'))
 
                 },
                 {
                   name: 'oslo',
-                  onClick: () => dispatch(updateFilterQuery(''))
+                  onClick: () => dispatch(updateFilterQuery('oslo'))
 
                 },
                 {
                   name: 'lofoten',
-                  onClick: () => dispatch(updateFilterQuery(''))
+                  onClick: () => dispatch(updateFilterQuery('lofoten'))
 
                 },
                 {
                   name: 'vesterålen',
-                  onClick: () => dispatch(updateFilterQuery(''))
+                  onClick: () => dispatch(updateFilterQuery('vesteraalen'))
+
+                },
+                {
+                  name: 'moss',
+                  onClick: () => dispatch(updateFilterQuery('moss'))
+
+                }
+              ]}
+            />
+            <Dropdown 
+              title='europe'
+              darkMode={darkMode}
+              links={[
+                {
+                  name: 'all',
+                  onClick: () => dispatch(updateFilterQuery('europe'))
+                },
+                {
+                  name: 'austria',
+                  onClick: () => dispatch(updateFilterQuery('austria'))
+
+                },
+                {
+                  name: 'belgium',
+                  onClick: () => dispatch(updateFilterQuery('belgium'))
+
+                },
+                {
+                  name: 'czech republic',
+                  onClick: () => dispatch(updateFilterQuery('czech-republic'))
+
+                },
+                {
+                  name: 'finland',
+                  onClick: () => dispatch(updateFilterQuery('finland'))
+
+                },
+                {
+                  name: 'france',
+                  onClick: () => dispatch(updateFilterQuery('france'))
+
+                },
+                {
+                  name: 'germany',
+                  onClick: () => dispatch(updateFilterQuery('germany'))
+
+                },
+                {
+                  name: 'hungary',
+                  onClick: () => dispatch(updateFilterQuery('hungary'))
+
+                },
+                {
+                  name: 'malta',
+                  onClick: () => dispatch(updateFilterQuery('malta'))
+
+                },
+                {
+                  name: 'netherlands',
+                  onClick: () => dispatch(updateFilterQuery('netherlands'))
 
                 }
               ]}
@@ -59,30 +111,55 @@ const Nav = () => {
               links={[
                 {
                   name: 'all',
-                  onClick: () => dispatch(updateFilterQuery(''))
-                },
-                {
-                  name: 'thailand',
-                  onClick: () => dispatch(updateFilterQuery(''))
-
+                  onClick: () => dispatch(updateFilterQuery('south-east-asia'))
                 },
                 {
                   name: 'indonesia',
-                  onClick: () => dispatch(updateFilterQuery(''))
+                  onClick: () => dispatch(updateFilterQuery('indonesia'))
 
                 },
                 {
-                  name: 'vietnam',
-                  onClick: () => dispatch(updateFilterQuery(''))
+                  name: 'malaysia',
+                  onClick: () => dispatch(updateFilterQuery('malaysia'))
 
                 },
                 {
-                  name: 'philipphines',
-                  onClick: () => dispatch(updateFilterQuery(''))
+                  name: 'philippines',
+                  onClick: () => dispatch(updateFilterQuery('philippines'))
+
+                },
+                {
+                  name: 'thailand',
+                  onClick: () => dispatch(updateFilterQuery('thailand'))
 
                 }
               ]}
             />
+            <Dropdown 
+              title='east asia'
+              darkMode={darkMode}
+              links={[
+                {
+                  name: 'all',
+                  onClick: () => dispatch(updateFilterQuery('east-asia'))
+                },
+                {
+                  name: 'south korea',
+                  onClick: () => dispatch(updateFilterQuery('south-korea'))
+
+                },
+                {
+                  name: 'taiwan',
+                  onClick: () => dispatch(updateFilterQuery('taiwan'))
+
+                }
+              ]}
+            />
+            <li
+              onClick={() => dispatch(updateFilterQuery('usa'))}
+            >
+              usa
+            </li>
             <li>|</li>
             <li
               onClick={() => dispatch(toggleDarkMode())}

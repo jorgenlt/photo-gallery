@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react'
 import { getRandomElement } from '../../common/utils/helperFunctions'
-import { useSelector } from 'react-redux'
-import { selectAllPhotos } from './photosSlice';
 import PhotoModal from './PhotoModal'
 
 
 const Photo = props => {
   const [isOpen, setIsOpen] = useState(false)
-
-  const photos = useSelector(selectAllPhotos)
 
   const toggleModal = () => {
     setIsOpen(prev => !prev)
