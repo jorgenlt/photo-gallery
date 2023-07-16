@@ -31,7 +31,7 @@ const Photo = props => {
       >
         <img 
           className='img-small' 
-          src={`/images/${props.src}`}
+          src={`images/${props.src}`}
           alt={props.src} 
           onClick={() => toggleModal()}
         />

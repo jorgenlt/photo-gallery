@@ -51,7 +51,7 @@ const PhotoModal = props => {
     >
       <img 
         className='img-large' 
-        src={`/images/${currentPhoto.src}`}
+        src={`images/${currentPhoto.src}`}
         alt={currentPhoto.src}
         onClick={() => props.toggleModal()}
       />
@@ -61,7 +61,7 @@ const PhotoModal = props => {
         <span
           onClick={() => prevImage()}
         >
-          previous
+          prev
         </span>
         /
         <span 
