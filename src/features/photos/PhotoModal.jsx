@@ -51,7 +51,7 @@ const PhotoModal = props => {
     >
       <img 
         className='img-large' 
-        src={`/${currentPhoto.src}`}
+        src={`/images/${currentPhoto.src}`}
         alt={currentPhoto.src}
         onClick={() => props.toggleModal()}
       />
