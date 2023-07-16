@@ -61,7 +61,7 @@ const PhotoModal = props => {
         <span
           onClick={() => prevImage()}
         >
-          prev
+          previous
         </span>
         /
         <span 
