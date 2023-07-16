@@ -16,7 +16,7 @@ const App = () => {
   [])
 
   return (
-    <div className={darkMode ? 'dark-mode' : 'light-mode'}>
+    <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="app">
         <Nav />
         <Photos />

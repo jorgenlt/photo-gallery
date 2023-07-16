@@ -1,7 +1,6 @@
 .dropdown {
   position: relative;
-  z-index: 99;
-
+  
   &:hover {
     opacity: 1;
   }
@@ -9,6 +8,7 @@
 
 .dropdown--content {
   position: absolute;
+  z-index: 99;
   margin-top: 30px;
   padding: 0px 10px 10px 10px;
   top: 0px;
