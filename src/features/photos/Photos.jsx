@@ -12,9 +12,8 @@ const Photos = () => {
       photos.map((photo, i) => (
         <Photo
           key={photo.id}
-          img={photo.src}
+          src={photo.src}
           category={photo.category}
-          year={photo.year}
           i={i}
         />
       ))

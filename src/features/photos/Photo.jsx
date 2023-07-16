@@ -31,8 +31,8 @@ const Photo = props => {
       >
         <img 
           className='img-small' 
-          src={`/${props.img}`}
-          alt={props.img} 
+          src={`/${props.src}`}
+          alt={props.src} 
           onClick={() => toggleModal()}
         />
       </li>
@@ -42,7 +42,6 @@ const Photo = props => {
           toggleModal={toggleModal}
           i={props.i}
           category={props.category}
-          year={props.year}
         />
       }
     </>

@@ -49,6 +49,11 @@
     overflow: hidden;
     -webkit-animation: fade-in 400ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in 400ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+    figcaption {
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
   }
 
   .img-nav {
@@ -59,9 +64,11 @@
     margin: 0;
     cursor: pointer;
     user-select: none;
-    font-size: 20px;
+    text-transform: uppercase;
 
     span {
+      margin: 0px 10px;
+
       &:hover {
         opacity: 0.7;
       }

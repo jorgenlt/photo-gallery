@@ -52,9 +52,10 @@ const PhotoModal = props => {
       <img 
         className='img-large' 
         src={`/${currentPhoto.src}`}
-        alt={props.img}
+        alt={currentPhoto.src}
         onClick={() => props.toggleModal()}
       />
+      <figcaption>{currentPhoto.category.replace(/(\w+)\s(.+)/, '$1, $2').replace(/-/g, ' ')}</figcaption>
       <div className='img-nav'>
         {/* <p>{currentPhotoIndex} / {currentPhoto.category} / {currentPhoto.year}</p> */}
         <span
@@ -62,7 +63,7 @@ const PhotoModal = props => {
         >
           prev
         </span>
-        &nbsp;/&nbsp;
+        /
         <span 
           onClick={() => nextImage()}
         >
