@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleDarkMode, updateFilterQuery } from '../features/photos/photosSlice'
 import Dropdown from './Dropdown'
+import NavMobile from './NavMobile'
 
 const Nav = () => {
   const dispatch = useDispatch()
@@ -13,7 +14,7 @@ const Nav = () => {
           <h1>Photo Gallery</h1>
           <h2>by jørgen larsen tjønnteig</h2>
         </header>
-        <div>
+        <div className='nav--desktop'>
           <ul>
             <li
               onClick={() => dispatch(updateFilterQuery(''))}
@@ -167,6 +168,11 @@ const Nav = () => {
               {darkMode ? 'Light Mode' : 'Dark Mode'}
             </li>
           </ul>
+        </div>
+        
+        {/* mobile navigation menu */}
+        <div className='nav--mobile'>
+          <NavMobile />
         </div>
       </nav>
     </>

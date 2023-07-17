@@ -1,0 +1,27 @@
+.nav--mobile {
+  display: none;
+  
+  ul {
+    margin: 50px 0px 0px 20px;
+  }
+}
+
+.nav--mobile-open, .nav--mobile-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.nav--mobile-links {
+  
+}
+
+@media screen and (max-width: 600px) {
+  .nav--mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+

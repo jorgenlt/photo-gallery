@@ -39,22 +39,21 @@ nav {
     }
   }
 }
+
 @media screen and (max-width: 600px) {
   nav {
-    flex-wrap: wrap;
-
     h1 {
       font-size: 2.2em;
     }
 
-    h2 {
-      margin-bottom: 2rem;
+    .nav--desktop {
+      display: none;
     }
+  }
 
-    ul {
-      flex-wrap: wrap;
-      gap: 0px;
-    }
+  .nav--mobile {
+    display: flex;
+    flex-direction: column;
   }
 }
 
