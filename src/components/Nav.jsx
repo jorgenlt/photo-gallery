@@ -16,10 +16,7 @@ const Nav = () => {
         </header>
         <div className='nav--desktop'>
           <ul>
-            <li
-              onClick={() => dispatch(updateFilterQuery(''))}
-            >
-              all</li>
+            <li onClick={() => dispatch(updateFilterQuery(''))}>all</li>
             <Dropdown 
               title='norway'
               darkMode={darkMode}

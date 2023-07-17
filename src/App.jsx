@@ -6,12 +6,17 @@ import Nav from './components/Nav'
 import Photos from './features/photos/Photos'
 import Footer from './components/Footer'
 import { useSelector } from 'react-redux'
+import { isMobile } from "react-device-detect";
 
 const App = () => {
   const darkMode = useSelector(state => state.photos.darkMode)
-
+  
   useEffect(() => {
-    AOS.init({ startEvent: 'load' });
+    AOS.init(
+      { 
+        startEvent: isMobile ? 'DOMContentLoaded' : 'load',
+      }
+    );
   }, 
   [])
 
