@@ -11,21 +11,27 @@ const PhotoModal = props => {
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(props.i)
   
+  // Determine the current set of photos based on whether a filter query is applied
   const currentPhotos = filterQuery ? filteredPhotos : photos
+
+  // Retrieve the current photo based on the currentPhotoIndex
   const currentPhoto = currentPhotos[currentPhotoIndex]
 
+  // Function to navigate to the previous image
   const prevImage = () => {
     if (currentPhotoIndex > 0) {
       setCurrentPhotoIndex(prev => prev - 1)
     }
   }
 
+  // Function to navigate to the next image
   const nextImage = () => {
     if (currentPhotoIndex < currentPhotos.length - 1) {
       setCurrentPhotoIndex(prev => prev + 1)
     }
   }
 
+  // Event handler for keyboard inputs
   const handleKeyDown = e => {
     if (e.key === 'ArrowLeft') {
       prevImage()
@@ -38,6 +44,8 @@ const PhotoModal = props => {
 
   const ref = useRef(null);
 
+  // Focus on the modal element when the component mounts
+  // to ensure that the key events work as expected
   useEffect(() => {
       ref.current.focus();
   }, []);
@@ -49,15 +57,19 @@ const PhotoModal = props => {
       ref={ref}
       tabIndex={0}
     >
+      {/* Display the current photo */}
       <img 
         className='img-large' 
         src={`images/${currentPhoto.src}`}
         alt={currentPhoto.src}
         onClick={() => props.toggleModal()}
       />
+
+      {/* Display the category of the current photo */}
       <figcaption>{currentPhoto.category.replace(/(\w+)\s(.+)/, '$1, $2').replace(/-/g, ' ')}</figcaption>
+      
+      {/* Navigation controls */}
       <div className='img-nav'>
-        {/* <p>{currentPhotoIndex} / {currentPhoto.category} / {currentPhoto.year}</p> */}
         <span
           onClick={() => prevImage()}
         >
@@ -70,6 +82,8 @@ const PhotoModal = props => {
           next
         </span>
       </div>
+
+      {/* Close button */}
       <HiXMark 
         className='img-modal--close'
         onClick={() => props.toggleModal()} 

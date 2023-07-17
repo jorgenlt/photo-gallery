@@ -6,10 +6,13 @@ import PhotoModal from './PhotoModal'
 const Photo = props => {
   const [isOpen, setIsOpen] = useState(false)
 
+  // Function to toggle photo modal
   const toggleModal = () => {
     setIsOpen(prev => !prev)
   }
 
+  // Add or remove 'overflow-hidden' class on the body 
+  // based on the state of the mobile navigation menu
   useEffect(() => {
     const body = document.body;
 
@@ -19,7 +22,6 @@ const Photo = props => {
       body.classList.remove('overflow-hidden');
     }
   }, [isOpen])
-  
   
   return(
     <>

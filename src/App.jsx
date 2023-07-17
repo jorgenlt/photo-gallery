@@ -11,6 +11,7 @@ import { isMobile } from "react-device-detect";
 const App = () => {
   const darkMode = useSelector(state => state.photos.darkMode)
   
+  // Initialize AOS library on component mount
   useEffect(() => {
     AOS.init(
       { 

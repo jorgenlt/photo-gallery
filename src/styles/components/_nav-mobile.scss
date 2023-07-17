@@ -16,11 +16,28 @@
 
   li {
     padding: 0;
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-left: 0.5rem;
+    }
   }
 
   .nav--mobile-sub {
     margin-left: 20px;
   }
+}
+
+.nav--mobile-overlay {
+  position: absolute;
+  background-color: $black;
+  opacity: 0.4;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 110vh;
+  width: 100vw;
 }
 
 .nav--mobile-open, .nav--mobile-close {
@@ -30,10 +47,6 @@
   right: 20px;
   font-size: 30px;
   cursor: pointer;
-}
-
-.nav--mobile-links {
-  
 }
 
 // CSSTransition
@@ -52,6 +65,7 @@
   transition: all 200ms linear;
 }
 
+// Responsivness
 @media screen and (max-width: 600px) {
   .nav--mobile-open, .nav--mobile-close {
     display: flex;

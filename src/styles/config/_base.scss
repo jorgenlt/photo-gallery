@@ -2,15 +2,13 @@ body {
   margin: 0;
   font-family: $body-font;
   transition: 1000ms;
-  font-weight: 200;
+  font-weight: 300;
+  -webkit-tap-highlight-color: transparent; // disables blue background on touch (mobile)
 }
+
 
 h1, h2, h3, h4, h5 {
   font-family: $h-font;
-  font-weight: 200;
-}
-
-p, span {
   font-weight: 200;
 }
 
