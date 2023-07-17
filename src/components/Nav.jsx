@@ -171,9 +171,7 @@ const Nav = () => {
         </div>
         
         {/* mobile navigation menu */}
-        <div className='nav--mobile'>
-          <NavMobile />
-        </div>
+        <NavMobile />
       </nav>
     </>
   )

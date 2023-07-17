@@ -1,5 +1,11 @@
 .nav--mobile {
   display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70vw;
+  height: 110vh;
+  z-index: 99;
   
   ul {
     margin: 50px 0px 0px 20px;
@@ -7,6 +13,7 @@
 }
 
 .nav--mobile-open, .nav--mobile-close {
+  display: none;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -18,7 +25,27 @@
   
 }
 
+// CSSTransition
+.nav--mobile-enter {
+  transform: translateX(70vw);
+}
+.nav--mobile-enter-active {
+  transform: translateX(0);
+  transition: all 100ms linear;
+}
+.nav--mobile-exit {
+  transform: translateX(0);
+}
+.nav--mobile-exit-active {
+  transform: translateX(70vw);
+  transition: all 100ms linear;
+}
+
 @media screen and (max-width: 600px) {
+  .nav--mobile-open, .nav--mobile-close {
+    display: flex;
+  }
+
   .nav--mobile {
     display: flex;
     flex-direction: column;
