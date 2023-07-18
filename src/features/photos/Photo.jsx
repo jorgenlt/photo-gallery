@@ -2,17 +2,16 @@ import { useState, useEffect } from 'react'
 import { getRandomElement } from '../../common/utils/helperFunctions'
 import PhotoModal from './PhotoModal'
 
-
 const Photo = props => {
   const [isOpen, setIsOpen] = useState(false)
-
+  
   // Function to toggle photo modal
   const toggleModal = () => {
     setIsOpen(prev => !prev)
   }
 
   // Add or remove 'overflow-hidden' class on the body 
-  // based on the state of the mobile navigation menu
+  // based on wether the modal is open.
   useEffect(() => {
     const body = document.body;
 
@@ -31,7 +30,7 @@ const Photo = props => {
         data-aos-delay={`${getRandomElement([50, 150, 250, 350])}`}
         data-aos-duration="400"
       >
-        <img 
+        <img
           className='img-small' 
           src={`images/${props.src}`}
           alt={props.src} 

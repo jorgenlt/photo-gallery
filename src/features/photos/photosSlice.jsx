@@ -2,6 +2,7 @@ import { createSlice, createSelector } from '@reduxjs/toolkit'
 import { photos } from './photosList'
 
 const initialState = {
+  loading: true,
   darkMode: false,
   photos: photos,
   filterQuery: '',
@@ -19,6 +20,9 @@ export const photosSlice = createSlice({
       state.filterQuery = action.payload;
       console.log(`filterQuery updated with: ${action.payload}`);
       state.filteredPhotos = state.photos.filter(photo => photo.category.includes(state.filterQuery));
+    },
+    toggleLoading: state => {
+      state.loading = false;
     }
   },
 })
@@ -30,6 +34,6 @@ export const selectAllPhotos = createSelector(
 )
 
 // Action creators are generated for each case reducer function
-export const { toggleDarkMode, updateFilterQuery } = photosSlice.actions
+export const { toggleDarkMode, updateFilterQuery, toggleLoading } = photosSlice.actions
 
 export default photosSlice.reducer
