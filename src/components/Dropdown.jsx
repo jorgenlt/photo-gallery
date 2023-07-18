@@ -4,15 +4,9 @@ import { v4 as uuidv4 } from 'uuid'
 const Dropdown = props => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Function to handle mouse enter event
-  const handleMouseEnter = () => {
-    setIsOpen(true);
-  };
-
-  // Function to handle mouse leave event
-  const handleMouseLeave = () => {
-    setIsOpen(false);
-  };
+  const toggleDropdown = () => {
+    setIsOpen(prev => !prev)
+  }
   
   // Map over the links array and generate anchor elements
   const linkElements = props.links.map(link => {
@@ -30,8 +24,8 @@ const Dropdown = props => {
   return (
     <li 
       className="dropdown"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={toggleDropdown}
+      onMouseLeave={toggleDropdown}
     >
       {props.title}
       {isOpen && (
