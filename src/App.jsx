@@ -9,7 +9,10 @@ import { Oval } from 'react-loader-spinner'
 import { toggleLoading } from './features/photos/photosSlice'
 
 const App = () => {
-  const { darkMode } = useSelector(state => state.photos)
+  const {
+    darkMode,
+    loading
+  } = useSelector(state => state.photos)
 
   const dispatch = useDispatch();
 
@@ -34,20 +37,25 @@ const App = () => {
   return (
     <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="app">
-        <Nav />        
-        <Oval
-          height={80}
-          width={80}
-          color="#101319"
-          wrapperStyle={{}}
-          wrapperClass="loader"
-          visible={true}
-          ariaLabel='oval-loading'
-          secondaryColor="#CED2DF"
-          strokeWidth={1}
-          strokeWidthSecondary={1}
-        />
-        <Photos />
+        <Nav />
+        { 
+          loading ? (
+            <Oval
+              height={80}
+              width={80}
+              color="#101319"
+              wrapperStyle={{}}
+              wrapperClass="loader"
+              visible={true}
+              ariaLabel='oval-loading'
+              secondaryColor="#CED2DF"
+              strokeWidth={1}
+              strokeWidthSecondary={1}
+            />
+          ) : (
+            <Photos />
+          )
+        }
         <Footer />
       </div>
     </div>
