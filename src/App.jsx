@@ -31,9 +31,9 @@ const App = () => {
   useEffect(() => {
     // callback function to call when event triggers
     const onPageLoad = () => {
+      AOS.init();
       setTimeout(() => {
         dispatch(toggleLoading());
-        AOS.init();
       }, 800)
       
       // do something else
