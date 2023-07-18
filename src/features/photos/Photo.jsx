@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { getRandomElement } from '../../common/utils/helperFunctions'
 import PhotoModal from './PhotoModal'
 
 const Photo = props => {
@@ -24,12 +23,7 @@ const Photo = props => {
   
   return(
     <>
-      <li
-        data-aos="zoom-in"
-        data-aos-offset="0"
-        data-aos-delay={`${getRandomElement([50, 150, 250, 350])}`}
-        data-aos-duration="400"
-      >
+      <li>
         <img
           className='img-small' 
           src={`images/${props.src}`}
