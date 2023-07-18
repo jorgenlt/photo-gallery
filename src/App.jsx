@@ -5,14 +5,10 @@ import 'aos/dist/aos.css'
 import Nav from './components/Nav'
 import Photos from './features/photos/Photos'
 import Footer from './components/Footer'
-import { Oval } from 'react-loader-spinner'
 import { toggleLoading } from './features/photos/photosSlice'
 
 const App = () => {
-  const {
-    darkMode,
-    loading
-  } = useSelector(state => state.photos)
+  const { darkMode } = useSelector(state => state.photos)
 
   const dispatch = useDispatch();
 
@@ -38,24 +34,7 @@ const App = () => {
     <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="app">
         <Nav />
-        { 
-          loading ? (
-            <Oval
-              height={80}
-              width={80}
-              color="#101319"
-              wrapperStyle={{}}
-              wrapperClass="loader"
-              visible={true}
-              ariaLabel='oval-loading'
-              secondaryColor="#CED2DF"
-              strokeWidth={1}
-              strokeWidthSecondary={1}
-            />
-          ) : (
-            <Photos />
-          )
-        }
+        <Photos />
         <Footer />
       </div>
     </div>
