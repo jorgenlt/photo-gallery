@@ -6,6 +6,28 @@ import Nav from './components/Nav'
 import Photos from './features/photos/Photos'
 import Footer from './components/Footer'
 import { toggleLoading } from './features/photos/photosSlice'
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://support.google.com/firebase/answer/7015592
+const firebaseConfig = {
+  apiKey: "AIzaSyCPjRrG0qhIKyj1D_NkpLVSDMZDlj8Xps8",
+  authDomain: "photo-gallery-02.firebaseapp.com",
+  projectId: "photo-gallery-02",
+  storageBucket: "photo-gallery-02.appspot.com",
+  messagingSenderId: "214278098284",
+  appId: "1:214278098284:web:4d58ab177b7fad61a4f749"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
 
 const App = () => {
   const { darkMode } = useSelector(state => state.photos)
