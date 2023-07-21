@@ -1,5 +1,4 @@
 import { useState } from 'react'
-// import { Cloudinary } from "@cloudinary/url-gen";
 import axios from 'axios';
 
 const AddPhotos = () => {
@@ -7,27 +6,34 @@ const AddPhotos = () => {
   const [category, setCategory] = useState('');
   const [image, setImage] = useState('');
 
-  const cloudName = 'dpqspser3'
-  // const cld = new Cloudinary({cloud: {cloudName: cloudName}}); // is this unneccessary?
+  const cloudName = 'dpqspser3';
+  // const apiKey = import.meta.env.VITE_API_KEY; 
+  // const apiSecret = import.meta.env.VITE_API_SECRET;
 
   const uploadImage = () => {
+    const uploadOptions = { tags: ['photo-gallery', location, category] };
     const formData = new FormData();
     formData.append('file', image);
     formData.append('upload_preset', 'uhel5qqu');
 
-    axios.post(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, formData)
+    axios.post(
+      `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+      formData,
+      { params: uploadOptions }
+      )
       .then(response => {
         console.log(`${response.status}, ${response.statusText}`);
+        console.log(response);
         alert('Image was successfully uploaded.')
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
       })
     
     setImage('');
     setLocation('');
     setCategory('');
-  }
+  }  
 
   return (
     <div className="add-photos">
@@ -43,5 +49,6 @@ const AddPhotos = () => {
     </div>
   )
 }
+
 
 export default AddPhotos
