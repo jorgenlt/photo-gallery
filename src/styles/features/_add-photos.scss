@@ -1,0 +1,17 @@
+.add-photos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 11rem;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+}

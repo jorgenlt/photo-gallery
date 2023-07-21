@@ -1,31 +1,35 @@
 import './styles/app.scss'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Nav from './components/Nav'
 import Photos from './features/photos/Photos'
 import Footer from './components/Footer'
+import AddPhotos from './features/photos/AddPhotos'
 import { toggleLoading } from './features/photos/photosSlice'
+import { firebaseConfig } from '../firebaseConfig'
 import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const App = () => {
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyCPjRrG0qhIKyj1D_NkpLVSDMZDlj8Xps8",
-    authDomain: "photo-gallery-02.firebaseapp.com",
-    projectId: "photo-gallery-02",
-    storageBucket: "photo-gallery-02.appspot.com",
-    messagingSenderId: "214278098284",
-    appId: "1:214278098284:web:4d58ab177b7fad61a4f749",
-    databaseURL: 'https://photo-gallery-02-default-rtdb.europe-west1.firebasedatabase.app/'
-  };
-
   // Initialize Firebase
   // eslint-disable-next-line no-unused-vars
   const app = initializeApp(firebaseConfig);
 
   const { darkMode } = useSelector(state => state.photos)
-
   const dispatch = useDispatch();
+
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);  
+      }
+    });
+  }, []);
 
   // Loader
   useEffect(() => {
@@ -45,12 +49,12 @@ const App = () => {
     }
   }, []);
   
-
   return (
     <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="app">
         <Nav />
         <Photos />
+        {user && <AddPhotos />}
         <Footer />
       </div>
     </div>
