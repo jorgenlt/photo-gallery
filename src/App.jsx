@@ -18,6 +18,7 @@ const App = () => {
   const { darkMode } = useSelector(state => state.photos)
   const dispatch = useDispatch();
 
+  // Firebase auth
   const [user, setUser] = useState(null);
   const auth = getAuth();
 
