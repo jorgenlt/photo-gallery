@@ -4,6 +4,7 @@ import fetchImageUrls from '../../common/storage/fetchImageUrls'
 
 const initialState = {
   status: 'idle',
+  userSignedIn: false,
   error: null,
   loading: true,
   darkMode: false,
@@ -37,6 +38,9 @@ export const photosSlice = createSlice({
     },
     toggleLoading: state => {
       state.loading = false;
+    },
+    setUserSignedIn: (state, action) => {
+      state.userSignedIn = action.payload;
     }
   },
   extraReducers: builder => {
@@ -76,6 +80,11 @@ export const selectAllPhotos = createSelector(
 )
 
 // Action creators are generated for each case reducer function
-export const { toggleDarkMode, updateFilterQuery, toggleLoading } = photosSlice.actions
+export const { 
+  toggleDarkMode, 
+  updateFilterQuery, 
+  toggleLoading, 
+  setUserSignedIn
+} = photosSlice.actions
 
 export default photosSlice.reducer

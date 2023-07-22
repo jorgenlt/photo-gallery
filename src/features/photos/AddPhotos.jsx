@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import uploadImage from '../../common/storage/uploadImage'
+import { useSelector } from 'react-redux'
 
 const AddPhotos = () => {
   const [location, setLocation] = useState('');
   const [category, setCategory] = useState('');
   const [image, setImage] = useState(null);
+
+  const { darkMode } = useSelector(state => state.photos);
 
   const handleUploadImage = () => {
     uploadImage(image, location, category);
@@ -14,11 +17,9 @@ const AddPhotos = () => {
   }
 
   return (
-    <div className="add-photos">
-      <h2>Add photos</h2>
-
+    <div className='add-photos'>
       <div>
-        <form>
+        <form className={darkMode ? 'dark-mode' : 'light-mode'}>
           <input 
             type="text" 
             placeholder="Location"
@@ -34,12 +35,15 @@ const AddPhotos = () => {
           />
           
           <input 
+            style={{border: 'none'}}
             type="file"
             onChange={e => setImage(e.target.files[0])}
+            className={`square_btn ${darkMode ? 'dark-mode' : 'light-mode'}`}
           />
+          <div>
+            <button className='square_btn' onClick={handleUploadImage}>Upload</button>
+          </div>
         </form>
-
-        <button onClick={handleUploadImage}>Upload</button>
       </div>
     </div>
   )

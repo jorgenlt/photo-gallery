@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
+
+  const { darkMode } = useSelector(state => state.photos)
   
   const signIn = (e, email, password) => {
     e.preventDefault();
@@ -27,7 +30,7 @@ const SignIn = () => {
 
   return (
     <div className='sign-in'>
-      <form onSubmit={signIn}>
+      <form onSubmit={signIn} className={darkMode ? 'dark-mode' : 'light-mode'}>
         <input 
           type="email" 
           name="" 
@@ -42,14 +45,16 @@ const SignIn = () => {
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
-        <button
-          type='submit'
-          onClick={e => signIn(e, email, password)}
-        >
-          Log in
-        </button>
+        <div>
+          <button
+            type='button'
+            className='square_btn'
+            onClick={e => signIn(e, email, password)}
+          >
+            Sign In
+          </button>
+        </div>
       </form>
-
     </div>
   )
 }

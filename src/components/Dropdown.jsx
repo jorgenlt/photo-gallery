@@ -29,7 +29,7 @@ const Dropdown = props => {
     >
       {props.title}
       {isOpen && (
-        <div       className={`dropdown--content ${props.darkMode ? 'dark-mode' : 'light-mode'}`}
+        <div className={`dropdown--content ${props.darkMode ? 'dark-mode' : 'light-mode'}`}
         >
           {linkElements}
         </div>

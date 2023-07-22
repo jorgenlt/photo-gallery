@@ -5,34 +5,36 @@ import Nav from './components/Nav'
 import Photos from './features/photos/Photos'
 import Footer from './components/Footer'
 import AddPhotos from './features/photos/AddPhotos'
+import UserOptions from './components/UserOptions'
 import { toggleLoading } from './features/photos/photosSlice'
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { fetchImageUrlsThunk } from './features/photos/photosSlice'
+import { fetchImageUrlsThunk, setUserSignedIn } from './features/photos/photosSlice'
 
 const App = () => {
-
   const { darkMode } = useSelector(state => state.photos)
-  const dispatch = useDispatch();
 
   const { 
     status, 
-    error,
+    error
   } = useSelector(state => state.photos);
+  
+  const dispatch = useDispatch();
 
   // Firebase auth
-  const [user, setUser] = useState(null);
   const auth = getAuth();
 
+  // Check if user is logged in
   useEffect(() => {
     onAuthStateChanged(auth, user => {
       if (user) {
-        setUser(user);
+        dispatch(setUserSignedIn(true));
       } else {
-        setUser(null);  
+        dispatch(setUserSignedIn(false));
       }
     });
   }, []);
 
+  // Fetch image-URL's from Firebase.
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchImageUrlsThunk());
@@ -61,9 +63,9 @@ const App = () => {
     <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="app">
         <Nav />
+        <UserOptions />
         {error && <p>{error}</p>}
         <Photos />
-        {user && <AddPhotos />}
         <Footer />
       </div>
     </div>
