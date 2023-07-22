@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import uploadImage from '../../components/storage/uploadImage'
+import uploadImage from '../../common/storage/uploadImage'
 
 const AddPhotos = () => {
   const [location, setLocation] = useState('');
@@ -12,7 +12,7 @@ const AddPhotos = () => {
     setCategory('');
     setImage(null);
   }
-  
+
   return (
     <div className="add-photos">
       <h2>Add photos</h2>

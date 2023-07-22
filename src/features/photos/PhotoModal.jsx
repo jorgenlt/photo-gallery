@@ -60,13 +60,13 @@ const PhotoModal = props => {
       {/* Display the current photo */}
       <img 
         className='img-large' 
-        src={`images/${currentPhoto.src}`}
+        src={currentPhoto.src}
         alt={currentPhoto.src}
         onClick={() => props.toggleModal()}
       />
 
       {/* Display the category of the current photo */}
-      <figcaption>{currentPhoto.category.replace(/(\w+)\s(.+)/, '$1, $2').replace(/-/g, ' ')}</figcaption>
+      <figcaption>{`${currentPhoto.category}, ${currentPhoto.location}`}</figcaption>
       
       {/* Navigation controls */}
       <div className='img-nav'>

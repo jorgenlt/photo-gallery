@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import "./common/utils/firebase" // Initializing the firestore app
 import App from './App.jsx'
 import { store } from './app/store'
 import { Provider } from 'react-redux'

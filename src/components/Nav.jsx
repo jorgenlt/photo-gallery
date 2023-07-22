@@ -68,7 +68,7 @@ const Nav = () => {
                 },
                 {
                   name: 'czech republic',
-                  onClick: () => dispatch(updateFilterQuery('czech-republic'))
+                  onClick: () => dispatch(updateFilterQuery('czech republic'))
 
                 },
                 {
@@ -109,7 +109,7 @@ const Nav = () => {
               links={[
                 {
                   name: 'all',
-                  onClick: () => dispatch(updateFilterQuery('south-east-asia'))
+                  onClick: () => dispatch(updateFilterQuery('south east asia'))
                 },
                 {
                   name: 'indonesia',
@@ -139,11 +139,11 @@ const Nav = () => {
               links={[
                 {
                   name: 'all',
-                  onClick: () => dispatch(updateFilterQuery('east-asia'))
+                  onClick: () => dispatch(updateFilterQuery('east asia'))
                 },
                 {
                   name: 'south korea',
-                  onClick: () => dispatch(updateFilterQuery('south-korea'))
+                  onClick: () => dispatch(updateFilterQuery('south korea'))
 
                 },
                 {

@@ -6,17 +6,18 @@ import Photos from './features/photos/Photos'
 import Footer from './components/Footer'
 import AddPhotos from './features/photos/AddPhotos'
 import { toggleLoading } from './features/photos/photosSlice'
-import { firebaseConfig } from '../firebaseConfig'
-import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { fetchImageUrlsThunk } from './features/photos/photosSlice'
 
 const App = () => {
-  // Initialize Firebase
-  // eslint-disable-next-line no-unused-vars
-  const app = initializeApp(firebaseConfig);
 
   const { darkMode } = useSelector(state => state.photos)
   const dispatch = useDispatch();
+
+  const { 
+    status, 
+    error,
+  } = useSelector(state => state.photos);
 
   // Firebase auth
   const [user, setUser] = useState(null);
@@ -31,6 +32,12 @@ const App = () => {
       }
     });
   }, []);
+
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchImageUrlsThunk());
+    }
+  },[status, dispatch])
 
   // Loader
   useEffect(() => {
@@ -54,6 +61,7 @@ const App = () => {
     <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="app">
         <Nav />
+        {error && <p>{error}</p>}
         <Photos />
         {user && <AddPhotos />}
         <Footer />
