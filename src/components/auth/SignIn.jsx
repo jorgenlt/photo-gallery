@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
+import FormHelperText from '@mui/material/FormHelperText';
 import { HiXMark } from "react-icons/hi2";
 
 
@@ -28,7 +29,6 @@ const SignIn = props => {
       })
   }
   
-
   return (
     <div className='sign-in'>
       <div className='sign-in--close' onClick={() => props.close()} >
@@ -50,9 +50,14 @@ const SignIn = props => {
           variant="outlined"
           value={password}
           onChange={e => setPassword(e.target.value)}
-        />
+          />
         <div>
           <Button variant="contained" size='small' onClick={e => signIn(e, email, password)}>Sign In</Button>
+        </div>
+        <div>
+          <FormHelperText>For demonstration purposes:</FormHelperText>
+          <FormHelperText>E-mail: olivia@gmail.com</FormHelperText>
+          <FormHelperText>Password: 123456</FormHelperText>
         </div>
       </form>
     </div>
