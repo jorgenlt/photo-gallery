@@ -44,9 +44,9 @@ const UserOptions = () => {
         }
       </ul>
       
-      {!userSignedIn && signInOpen && <SignIn />}
+      {!userSignedIn && signInOpen && <SignIn close={() => setSignInOpen(prev => !prev)} />}
       
-      {uploadOpen && <AddPhotos />}
+      {uploadOpen && <AddPhotos close={() => setUploadOpen(prev => !prev)} />}
     </div>
   )
 }

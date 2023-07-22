@@ -64,24 +64,22 @@ a {
   background-color: $white;
 }
 
-.square_btn, input[type="file"]::-webkit-file-upload-button {
+input[type="file"]::-webkit-file-upload-button {
   position: relative;
   display: inline-block;
-  padding: 0.25em 0.5em;
+  padding: 5px 10px;
   text-decoration: none;
   color: #FFF;
-  background: #03A9F4;
-  border: solid 1px #0f9ada;
+  background-color: #1976d2;
+  border: solid 1px #1976d2;
   border-radius: 4px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
-  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+
+  &:hover {
+    background-color: darken(#1976d2, 8);
+    border: solid 1px darken(#1976d2, 8);
+  }
 }
 
-.square_btn:active, input[type="file"]::-webkit-file-upload-button {
-  border: solid 1px #03A9F4;
-  box-shadow: none;
-  text-shadow: none;
-}
 
 @media screen and (max-width: 600px) {
   .app {

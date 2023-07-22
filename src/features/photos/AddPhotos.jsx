@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import uploadImage from '../../common/storage/uploadImage'
-import { useSelector } from 'react-redux'
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import { HiXMark } from "react-icons/hi2";
 
-const AddPhotos = () => {
+
+
+const AddPhotos = props => {
   const [location, setLocation] = useState('');
   const [category, setCategory] = useState('');
   const [image, setImage] = useState(null);
-
-  const { darkMode } = useSelector(state => state.photos);
 
   const handleUploadImage = () => {
     uploadImage(image, location, category);
@@ -18,30 +20,40 @@ const AddPhotos = () => {
 
   return (
     <div className='add-photos'>
+      <div className='add-photos--close' onClick={() => props.close()} >
+        <HiXMark/>
+      </div>
       <div>
-        <form className={darkMode ? 'dark-mode' : 'light-mode'}>
-          <input 
-            type="text" 
-            placeholder="Location"
-            value={location} 
+        <form>
+          <TextField 
+            type='text'
+            size='small'
+            label='Location'
+            variant='outlined'
+            value={location}
             onChange={e => setLocation(e.target.value)} 
           />
-          
-          <input
-            type="text"
-            placeholder="Category"
+          <TextField 
+            type='text'
+            size='small'
+            label='Category'
+            variant='outlined'
             value={category}
             onChange={e => setCategory(e.target.value)}  
           />
-          
           <input 
             style={{border: 'none'}}
             type="file"
             onChange={e => setImage(e.target.files[0])}
-            className={`square_btn ${darkMode ? 'dark-mode' : 'light-mode'}`}
           />
           <div>
-            <button className='square_btn' onClick={handleUploadImage}>Upload</button>
+            <Button 
+              variant='contained'
+              size='small'
+              onClick={handleUploadImage}
+            >
+              Upload
+            </Button>
           </div>
         </form>
       </div>

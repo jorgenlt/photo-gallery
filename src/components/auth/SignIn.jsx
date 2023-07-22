@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import { HiXMark } from "react-icons/hi2";
 
-const SignIn = () => {
+
+const SignIn = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
-
-  const { darkMode } = useSelector(state => state.photos)
   
   const signIn = (e, email, password) => {
     e.preventDefault();
@@ -30,29 +31,28 @@ const SignIn = () => {
 
   return (
     <div className='sign-in'>
-      <form onSubmit={signIn} className={darkMode ? 'dark-mode' : 'light-mode'}>
-        <input 
+      <div className='sign-in--close' onClick={() => props.close()} >
+        <HiXMark/>
+      </div>
+      <form onSubmit={signIn} >
+        <TextField
           type="email" 
-          name="" 
-          placeholder='E-mail'
+          size='small'
+          label="E-mail" 
+          variant="outlined"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <input 
+        <TextField
           type="password" 
-          name="" 
-          placeholder='Password'
+          size='small'
+          label="Password" 
+          variant="outlined"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
         <div>
-          <button
-            type='button'
-            className='square_btn'
-            onClick={e => signIn(e, email, password)}
-          >
-            Sign In
-          </button>
+          <Button variant="contained" size='small' onClick={e => signIn(e, email, password)}>Sign In</Button>
         </div>
       </form>
     </div>
