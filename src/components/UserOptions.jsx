@@ -37,7 +37,6 @@ const UserOptions = () => {
             <li onClick={userSignIn}>sign in</li>
           )
         }
-
         {
           userSignedIn &&
           <li onClick={() => setUploadOpen(prev => !prev)}>upload photo</li>

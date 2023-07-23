@@ -2,6 +2,7 @@ import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
 const storage = getStorage();
 
+// Returns an array of objects containing the image URLs, categories, and locations
 const fetchImageUrls = async () => {
   
   const listRef = ref(storage);
@@ -25,7 +26,6 @@ const fetchImageUrls = async () => {
   );
 
   return urls;
-  
 }
 
 export default fetchImageUrls;

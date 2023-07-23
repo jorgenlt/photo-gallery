@@ -1,10 +1,9 @@
 import './styles/app.scss'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Nav from './components/Nav'
 import Photos from './features/photos/Photos'
 import Footer from './components/Footer'
-import AddPhotos from './features/photos/AddPhotos'
 import UserOptions from './components/UserOptions'
 import { toggleLoading } from './features/photos/photosSlice'
 import { getAuth, onAuthStateChanged } from 'firebase/auth';

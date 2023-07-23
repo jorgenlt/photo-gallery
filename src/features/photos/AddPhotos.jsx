@@ -4,8 +4,6 @@ import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import { HiXMark } from "react-icons/hi2";
 
-
-
 const AddPhotos = props => {
   const [location, setLocation] = useState('');
   const [category, setCategory] = useState('');

@@ -5,7 +5,6 @@ import TextField from '@mui/material/TextField'
 import FormHelperText from '@mui/material/FormHelperText';
 import { HiXMark } from "react-icons/hi2";
 
-
 const SignIn = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
@@ -14,9 +13,9 @@ const SignIn = props => {
     e.preventDefault();
 
     const auth = getAuth();
+    
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-        // Signed in 
         const user = userCredential.user;
         console.log(`Signed in as ${user.email}`);
         setEmail('');

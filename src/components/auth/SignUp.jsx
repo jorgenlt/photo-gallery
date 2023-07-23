@@ -1,3 +1,5 @@
+// Unused component. Keeping for future reference.
+
 import { useState } from 'react'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 
