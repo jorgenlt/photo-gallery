@@ -4,7 +4,7 @@ import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import { HiXMark } from "react-icons/hi2";
 
-const AddPhotos = props => {
+const UploadImage = props => {
   const [location, setLocation] = useState('');
   const [category, setCategory] = useState('');
   const [image, setImage] = useState(null);
@@ -18,11 +18,11 @@ const AddPhotos = props => {
 
   return (
     <div className='add-photos'>
-      <div className='add-photos--close' onClick={() => props.close()} >
-        <HiXMark/>
-      </div>
       <div>
         <form>
+          <div className='add-photos--close' onClick={() => props.close()} >
+            <HiXMark/>
+          </div>
           <TextField 
             type='text'
             size='small'
@@ -59,4 +59,4 @@ const AddPhotos = props => {
   )
 }
 
-export default AddPhotos;
+export default UploadImage;

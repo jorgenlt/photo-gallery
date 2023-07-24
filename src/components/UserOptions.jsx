@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { getAuth, signOut } from 'firebase/auth'
 import SignIn from './auth/SignIn';
-import AddPhotos from '../features/photos/AddPhotos';
+import UploadImage from '../features/photos/UploadImage';
 
 const UserOptions = () => {
-  const { userSignedIn } = useSelector(state => state.photos);
+  const { userSignedIn, darkMode } = useSelector(state => state.photos);
 
   const [signInOpen, setSignInOpen] = useState(false);
   const [uploadOpen, setUploadOpen] = useState(false);
@@ -28,11 +28,11 @@ const UserOptions = () => {
   }
 
   return (
-    <div className="user-options">
+    <div className={`user-options ${darkMode ? 'user-options--li-dark' : 'user-options--li-light'}`}>
       <ul>
         {
           userSignedIn ? (
-            <li onClick={userSignOut}>sign out</li>
+            <li className='li' onClick={userSignOut}>sign out</li>
           ) : (
             <li onClick={userSignIn}>sign in</li>
           )
@@ -45,7 +45,7 @@ const UserOptions = () => {
       
       {!userSignedIn && signInOpen && <SignIn close={() => setSignInOpen(prev => !prev)} />}
       
-      {uploadOpen && <AddPhotos close={() => setUploadOpen(prev => !prev)} />}
+      {uploadOpen && <UploadImage close={() => setUploadOpen(prev => !prev)} />}
     </div>
   )
 }

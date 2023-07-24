@@ -30,10 +30,10 @@ const SignIn = props => {
   
   return (
     <div className='sign-in'>
-      <div className='sign-in--close' onClick={() => props.close()} >
-        <HiXMark/>
-      </div>
       <form onSubmit={signIn} >
+        <div className='sign-in--close' onClick={() => props.close()} >
+          <HiXMark/>
+        </div>
         <TextField
           type="email" 
           size='small'

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { selectAllPhotos } from './photosSlice'
 import { HiXMark } from "react-icons/hi2";
 
-const PhotoModal = props => {
+const ImageModal = props => {
   const darkMode = useSelector(state => state.photos.darkMode)
   const photos = useSelector(selectAllPhotos)
   const filterQuery = useSelector(state => state.photos.filterQuery)
@@ -52,14 +52,14 @@ const PhotoModal = props => {
 
   return (
     <div 
-      className={`img-modal ${darkMode ? 'dark-mode' : 'light-mode'}`}
+      className={`image-modal ${darkMode ? 'dark-mode' : 'light-mode'}`}
       onKeyDown={e => handleKeyDown(e)}
       ref={ref}
       tabIndex={0}
     >
       {/* Display the current photo */}
       <img 
-        className='img-large' 
+        className='image-large' 
         src={currentPhoto.src}
         alt={currentPhoto.src}
         onClick={() => props.toggleModal()}
@@ -69,7 +69,7 @@ const PhotoModal = props => {
       <figcaption>{`${currentPhoto.category}, ${currentPhoto.location}`}</figcaption>
       
       {/* Navigation controls */}
-      <div className='img-nav'>
+      <div className='image-nav'>
         <span
           onClick={() => prevImage()}
         >
@@ -85,11 +85,11 @@ const PhotoModal = props => {
 
       {/* Close button */}
       <HiXMark 
-        className='img-modal--close'
+        className='image-modal--close'
         onClick={() => props.toggleModal()} 
       />
     </div>
   )
 }
 
-export default PhotoModal
+export default ImageModal

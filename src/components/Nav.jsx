@@ -10,7 +10,7 @@ const Nav = () => {
   return (
     <>
       <nav>
-        <header>
+        <header onClick={() => dispatch(updateFilterQuery(''))}>
           <h1>Photo Gallery</h1>
           <h2>by jørgen larsen tjønnteig</h2>
         </header>

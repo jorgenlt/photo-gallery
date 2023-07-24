@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import PhotoModal from './PhotoModal'
+import ImageModal from './ImageModal'
 
 const Photo = props => {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,7 +25,7 @@ const Photo = props => {
     <>
       <li>
         <img
-          className='img-small' 
+          className='image-small' 
           src={props.src}
           alt={props.src} 
           onClick={() => toggleModal()}
@@ -33,7 +33,7 @@ const Photo = props => {
       </li>
       {
         isOpen && 
-        <PhotoModal 
+        <ImageModal 
           toggleModal={toggleModal}
           i={props.i}
           category={props.category}
