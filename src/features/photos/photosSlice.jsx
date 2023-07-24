@@ -50,7 +50,6 @@ export const photosSlice = createSlice({
       })
       .addCase(fetchImageUrlsThunk.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        // pokemonsAdapter.upsertMany(state, action.payload);
         action.payload.forEach(image => {
 
            // Check if the photo already exists in the state.
