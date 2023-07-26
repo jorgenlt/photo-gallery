@@ -17,7 +17,7 @@
 <ul>
   <li>Browse photos by category.</li>
   <li>View photos in full size.</li>
-  <li>Upload new images and to category of choice.</li>
+  <li>Upload new images to category of choice.</li>
 </ul>
 
 
@@ -145,7 +145,7 @@ export const {
 export default photosSlice.reducer
 ```
 
-<h3>Fetch all image URL's from photos stored at Firebase Storage.</h3>
+<h3>Fetch all image URL's from photos stored in Firebase Storage.</h3>
 
 ```.js
 // src/common/storage/fetchImageUrls.js

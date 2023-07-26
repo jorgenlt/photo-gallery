@@ -11,7 +11,7 @@ import { CSSTransition } from 'react-transition-group'
 
 const NavMobile = () => {
   const dispatch = useDispatch();
-  const darkMode = useSelector(state => state.photos.darkMode);
+  const { darkMode } = useSelector(state => state.photos);
 
   const [isOpen, setIsOpen] = useState(false);
   const [showNorway, setShowNorway] = useState(false)
@@ -158,7 +158,7 @@ const NavMobile = () => {
                 </li>
                 <li 
                   className='nav--mobile-sub'
-                  onClick={() => handleSub('czech-republic')}
+                  onClick={() => handleSub('czech republic')}
                 >
                   czech republic
                 </li>
@@ -212,7 +212,7 @@ const NavMobile = () => {
               <>
                 <li 
                   className='nav--mobile-sub'
-                  onClick={() => handleSub('south-east-asia')}
+                  onClick={() => handleSub('south east asia')}
                 >
                   all
                 </li>
@@ -254,13 +254,13 @@ const NavMobile = () => {
               <>
                 <li 
                   className='nav--mobile-sub'
-                  onClick={() => handleSub('east-asia')}
+                  onClick={() => handleSub('east asia')}
                 >
                   all
                 </li>
                 <li 
                   className='nav--mobile-sub'
-                  onClick={() => handleSub('south-korea')}
+                  onClick={() => handleSub('south korea')}
                 >
                   south korea
                 </li>
