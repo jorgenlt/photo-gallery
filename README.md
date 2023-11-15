@@ -3,7 +3,7 @@
 <div>
   <p>A photo portfolio site for photographers.</p>
   </br>
-  <p>Visit site: <a href="https://photography.jorgenlt.me" target="_blank">photography.jorgenlt.me</a></p>
+  <p>Visit site: <a href="https://photography.jorgenlt.no" target="_blank">photography.jorgenlt.no</a></p>
   </br>
 </div>
 
